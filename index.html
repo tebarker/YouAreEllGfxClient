@@ -1,34 +1,4 @@
 <!DOCTYPE html>
-import MessageService from "./message-service.js";
-let userId = "lol";
-const messageService = new MessageService(userId);
-
-window.addEventListener("load", function () {
-
-document.getElementById("greeting").innerHTML = `Welcome ${userId}!`;
-messageService.getAllMessages()
-.then(successCallback, errorCallback);
-
-function successCallback(response) {
-// This data comes from the resolve method
-populateMessages(response);
-console.log(response);
-}
-
-function errorCallback(response) {
-// This data comes from the reject method
-console.log(response);
-}
-
-function populateMessages(messages) {
-messages.forEach(message => {
-addMessageToThread(message);
-})
-}
-
-});
-
-
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
