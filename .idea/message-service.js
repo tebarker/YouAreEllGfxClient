@@ -2,7 +2,7 @@ export default class MessageService {
 getAllMessages() {
     const request = new XMLHttpRequest();
 
-    new Promise(function (resolve, reject) {
+    return new Promise(function (resolve, reject) {
         // Setup our listener to process compeleted requests
         request.onload = function () {
             // Process the response
@@ -23,16 +23,18 @@ getAllMessages() {
         request.open("GET", "http://zipcode.rocks:8085/messages");
 
         request.send();
-    }).then(successCallback, errorCallback);
+    })
+}
+messageService.getAllMessages()
+    .then(successCallback, errorCallback);
 
-    function successCallback(response) {
-        // This data comes from the resolve method
-        console.log(response);
-    }
+function successCallback(response) {
+    // This data comes from the resolve method
+    console.log(response);
+}
 
-    function errorCallback(response) {
-        // This data comes from the reject method
-        console.log(response);
-    }
+function errorCallback(response) {
+    // This data comes from the reject method
+    console.log(response);
 }
 }
