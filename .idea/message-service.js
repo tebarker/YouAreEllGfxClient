@@ -55,7 +55,7 @@ createNewMessage(message) {
             }
         };
 
-        request.open("POST", `http://zipcode.rocks:8085/ids/${message.fromid}/messages`);
+        request.open("POST", `http:zipcode.rocks:8085/ids/${message.fromid}/messages`);
 
         request.send(JSON.stringify(message));
     });
@@ -77,7 +77,7 @@ function createFormListener() {
 
         function successCallback(response) {
             // This data comes from the resolve method
-            console.log(response);
+            addMessageToThread(response);
         }
 
         function errorCallback(response) {
